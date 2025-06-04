@@ -1,0 +1,31 @@
+[env]
+TERM = "xterm-256color"
+
+[font]
+[font.normal]
+family = "MapleMono"
+# size =13 
+
+[[keyboard.bindings]]
+action = "ToggleFullscreen"
+key = "F"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "R"
+mods = "Control|Shift"
+
+
+
+
+[window]
+blur = false
+decorations = "none"
+opacity = 1
+startup_mode = "Maximized"
+
+
+[window.padding]
+x = 25
+y = 25

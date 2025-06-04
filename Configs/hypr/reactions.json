@@ -1,0 +1,22 @@
+{
+  "reactions": [
+    {
+      "event_type": { "Window": "Opened" },
+      "dispatcher": "CenterWindow",
+      "args": [],
+      "max_count": 0,
+      "is_async": false,
+      "name": "Center New Windows",
+      "description": "Centers windows when they are opened"
+    },
+    {
+      "event_type": { "Workspace": "Changed" },
+      "dispatcher": "Exec",
+      "args": ["notify-send", "Workspace Changed"],
+      "max_count": 0,
+      "is_async": false,
+      "name": "Workspace Notification",
+      "description": "Sends a notification when changing workspaces"
+    }
+  ]
+}
