@@ -1,0 +1,22 @@
+[user]
+	email = prime0run@gmail.com
+	name = prime-run
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[core]
+	editor = nvim
+[http]
+	postBuffer = 524288000
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true
+[advice]
+	statusHints = false
+[init]
+	defalutBranch = master
+	defaultBranch = master

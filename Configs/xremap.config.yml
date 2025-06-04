@@ -1,0 +1,17 @@
+keymap:
+  - name: global
+    remap:
+      M-h: left
+      M-j: down
+      M-k: up
+      M-l: right
+      M-KEY_LEFTBRACE: KEY_LEFTSHIFT-KEY_9
+      M-KEY_RIGHTBRACE: KEY_LEFTSHIFT-KEY_0
+      M-KEY_9: KEY_HOME
+      M-KEY_0: KEY_END
+      M-KEY_f: KEY_MINUS
+
+modmap:
+  - name: Remap RightAlt to Backspace
+    remap:
+      KEY_RIGHTALT: KEY_BACKSPACE

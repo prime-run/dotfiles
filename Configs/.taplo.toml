@@ -1,0 +1,19 @@
+include = ["**/*.toml"]
+exclude = [
+  "**/*nested-1000.toml",
+  "**/node_modules/**",
+  "**/invalid/*",
+  "test-data/**",
+  "target",
+]
+
+[formatting]
+
+[[rule]]
+
+[rule.formatting]
+include = ["taplo.toml"]
+keys = ["exclude"]
+
+array_auto_collapse = false
+column_width = 100

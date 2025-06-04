@@ -1,0 +1,28 @@
+name:
+    .trash: 
+    .cargo: "\U000F18D8"
+    .emacs.d: 
+    nvim: 
+    a.out: 
+    rust: 
+
+extension:
+    go: 
+    hs: 
+    rs: 
+    lua: 
+    md: 
+    pdf: 
+    png: 
+
+filetype:
+    dir: 
+    file: 
+    pipe: "\U000F07E5"
+    socket: "\U000F0427"
+    executable: 
+    symlink-dir: 
+    symlink-file: 
+    device-char: 
+    device-block: "\U000F072B"
+    special: 

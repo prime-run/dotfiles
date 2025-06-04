@@ -1,0 +1,82 @@
+[env]
+TERM = "xterm-256color"
+
+[font]
+normal = { family = "GeistMonoNerdFont", style = "Medium" }
+bold = { family = "GeistMonoNerdFont", style = "Black" }
+italic = { family = "CaskaydiaCoveNerdFont", style = "italic" }
+# italic = { family = "CaskaydiaCove", style = "italic" }
+size = 13
+offset = { y = 2 }
+
+[cursor]
+style = { shape = "Block", blinking = "On" }
+vi_mode_style = "Block"
+
+# keyboard.bindings = [
+#   { action = "ToggleFullscreen", key = "F",     mods = "Control|Shift" },
+#   { action = "SpawnNewInstance", key = "R",     mods = "Control|Shift" },
+#   { action = "ToggleViMode",     key = "Space", mods = "Control"       },
+# ]
+
+
+[[keyboard.bindings]]
+mods = "Shift"
+mode = "Vi|~Search"
+key = "y"
+action = "ToggleNormalSelection"
+
+
+[[keyboard.bindings]]
+mods = "Shift"
+mode = "Vi|~Search"
+key = "y"
+action = "Last"
+
+[[keyboard.bindings]]
+mods = "Shift"
+mode = "Vi|~Search"
+key = "y"
+action = "Copy"
+
+[[keyboard.bindings]]
+mods = "Shift"
+mode = "Vi|~Search"
+key = "y"
+action = "ClearSelection"
+
+[[keyboard.bindings]]
+action = "ToggleFullscreen"
+key = "F"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "R"
+mods = "Control|Shift"
+
+
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "Space"
+mods = "Control"
+
+
+[colors]
+cursor = { cursor = "#01ABAE" }
+primary = { background = "#050910", foreground = "#C8D8FF", bright_foreground = "#CDD6F4" }
+vi_mode_cursor = { cursor = "#E65BDE" }
+
+[selection]
+save_to_clipboard = true
+#clear_after_save = true
+
+[window]
+blur = false
+decorations = "none"
+# opacity = 0.5
+
+
+[window.padding]
+x = 20
+y = 20
