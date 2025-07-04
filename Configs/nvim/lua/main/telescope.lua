@@ -4,13 +4,14 @@ return {
   -- -for leader sn -> if prefixed with ' ' opens oil in there
   -- -manage plugins to be lazy loaded
   'nvim-telescope/telescope.nvim',
-  event = 'VimEnter',
-  branch = '0.1.x',
+  -- event = 'VimEnter',
+  tag = '0.1.8',
+  -- branch = '0.1.x',
   dependencies = {
     -- FIX: no more dependecy arr, instead lazy load the all!
     { 'nvim-lua/plenary.nvim' },
     { 'nvim-telescope/telescope-ui-select.nvim' },
-    { 'nvim-tree/nvim-web-devicons', enabled = true },
+    { 'nvim-tree/nvim-web-devicons', lazy = true, enabled = true },
   },
   config = function()
     require('telescope').setup {

@@ -70,6 +70,9 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { silent = true })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { silent = true })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { silent = true })
 
+-- vim.keymap.set('n', '<Esc>0', '^')
+vim.keymap.set('n', '<M-a>', '@a')
+
 vim.keymap.set('n', '<leader>rep', function()
   local replacement = vim.fn.escape(vim.fn.getreg '.', '/\\&')
   vim.cmd('keeppatterns %s//' .. replacement .. '/g')
@@ -90,19 +93,32 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 vim.keymap.set('n', '<leader>gs', '<cmd>Telescope git_status<CR>', { desc = '[T]elescope [g]it [s]tatus' })
 vim.keymap.set('n', ';', ':')
+vim.keymap.set('n', "'", ';')
 
 vim.api.nvim_create_autocmd('VimEnter', {
   callback = function()
-    vim.fn.jobstart({ 'kitty', '@', 'set-spacing', 'padding-bottom=0' }, {
+    vim.fn.jobstart({ 'alacritty', 'msg', 'config', 'window.padding.y=0' }, {
       detach = true,
     })
+    -- vim.fn.jobstart { 'alacritty', 'msg', 'config', 'window.padding.y=1' }
+    -- vim.fn.jobstart({ 'kitten', '@', 'set-colors', 'background=#050E19' }, {
+    --   detach = true,
+    -- })
   end,
 })
 
 vim.api.nvim_create_autocmd('VimLeave', {
   callback = function()
-    vim.fn.jobstart({ 'kitty', '@', 'set-spacing', 'padding=default' }, {
+    -- vim.fn.jobstart({ 'kitty', '@', 'set-spacing', 'padding=20' }, {
+    -- detach = true,
+    -- })
+
+    vim.fn.jobstart({ 'alacritty', 'msg', 'config', 'window.padding.y=20' }, {
       detach = true,
     })
+
+    -- vim.fn.jobstart({ 'kitten', '@', 'set-colors', 'background=#050910' }, {
+    --   detach = true,
+    -- })
   end,
 })

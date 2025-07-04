@@ -21,6 +21,41 @@ function load_zsh_plugins {
 
 # ========== Fuzzy Finder ==========
 
+_fuzzy_search_cmd_history() {
+  local selected
+  setopt localoptions noglobsubst noposixbuiltins pipefail no_aliases noglob nobash_rematch 2> /dev/null
+
+  local fzf_query=""
+  if [[ -n "$1" ]]; then
+    fzf_query="--query=${(qqq)1}"
+  else
+    fzf_query="--query=${(qqq)LBUFFER}"
+  fi
+
+  if zmodload -F zsh/parameter p:{commands,history} 2>/dev/null && (( ${+commands[perl]} )); then
+    selected="$(printf '%s\t%s\000' "${(kv)history[@]}" |
+      perl -0 -ne 'if (!$seen{(/^\s*[0-9]+\**\t(.*)/s, $1)}++) { s/\n/\n\t/g; print; }' |
+      FZF_DEFAULT_OPTS=$(__fzf_defaults "" "-n2..,.. --scheme=history --bind=ctrl-r:toggle-sort --wrap-sign '\t↳ ' --highlight-line ${FZF_CTRL_R_OPTS-} $fzf_query +m --read0") \
+      FZF_DEFAULT_OPTS_FILE='' $(__fzfcmd))"
+  else
+    selected="$(fc -rl 1 | __fzf_exec_awk '{ cmd=$0; sub(/^[ \t]*[0-9]+\**[ \t]+/, "", cmd); if (!seen[cmd]++) print $0 }' |
+      FZF_DEFAULT_OPTS=$(__fzf_defaults "" "-n2..,.. --scheme=history --bind=ctrl-r:toggle-sort --wrap-sign '\t↳ ' --highlight-line ${FZF_CTRL_R_OPTS-} $fzf_query +m") \
+      FZF_DEFAULT_OPTS_FILE='' $(__fzfcmd))"
+  fi
+  local ret=$?
+  if [ -n "$selected" ]; then
+    if [[ $(__fzf_exec_awk '{print $1; exit}' <<< "$selected") =~ ^[1-9][0-9]* ]]; then
+      zle vi-fetch-history -n $MATCH
+    else
+      LBUFFER="$selected"
+    fi
+  fi
+  # zle reset-prompt
+  return $ret
+}
+
+
+
 _fuzzy_change_directory() {
     local initial_query="$1"
     local selected_dir
@@ -113,6 +148,7 @@ if [ -t 1 ]; then
     alias ffec='_fuzzy_edit_search_file_content' # [f]uzzy [e]dit [s]earch [f]ile by [c]ontent
     alias ffe='_fuzzy_edit_search_file'          # [f]uzzy [e]dit [s]earch [f]ile
     alias ffcd='_fuzzy_change_directory'         # [f]uzzy [o]pen [d]irectory
+    alias ffch='_fuzzy_search_cmd_history'       # [f]uzzy [s]earch [h]istory
 
     PM="pm.sh"
     # Try to find pm.sh in common locations

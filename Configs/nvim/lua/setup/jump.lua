@@ -27,3 +27,13 @@ function Jumpiiii()
 end
 
 vim.keymap.set('i', '<C-l>', Jumpiiii, { desc = 'Jump ', silent = true, nowait = true })
+
+function Render_md()
+  vim.cmd('!md render ' .. vim.fn.shellescape(vim.fn.expand '%:p'))
+end
+
+function Insert_Date()
+  vim.cmd "pu=strftime('%c')"
+end
+
+

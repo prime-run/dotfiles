@@ -16,3 +16,8 @@
 	gpgsign = true
 [tag]
 	gpgSign = true
+[advice]
+	statusHints = false
+[init]
+	defalutBranch = master
+	defaultBranch = master

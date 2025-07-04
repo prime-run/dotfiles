@@ -2,9 +2,23 @@
 TERM = "xterm-256color"
 
 [font]
-[font.normal]
-family = "MapleMono"
-# size =13 
+normal = { family = "GeistMonoNerdFont", style = "Medium" }
+bold = { family = "GeistMonoNerdFont", style = "Black" }
+italic = { family = "CaskaydiaCoveNerdFont", style = "italic" }
+# italic = { family = "CaskaydiaCove", style = "italic" }
+size = 14
+offset = { y = 1 }
+
+[cursor]
+style = { shape = "Block", blinking = "On" }
+vi_mode_style = "Block"
+
+# keyboard.bindings = [
+#   { action = "ToggleFullscreen", key = "F",     mods = "Control|Shift" },
+#   { action = "SpawnNewInstance", key = "R",     mods = "Control|Shift" },
+#   { action = "ToggleViMode",     key = "Space", mods = "Control"       },
+# ]
+
 
 [[keyboard.bindings]]
 action = "ToggleFullscreen"
@@ -17,15 +31,27 @@ key = "R"
 mods = "Control|Shift"
 
 
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "Space"
+mods = "Control"
 
+
+[colors]
+cursor = { cursor = "#01ABAE" }
+primary = { background = "#050910", foreground = "#C8D8FF", bright_foreground = "#CDD6F4" }
+vi_mode_cursor = { cursor = "#E65BDE" }
+
+[selection]
+save_to_clipboard = true
+clear_after_save = true
 
 [window]
 blur = false
 decorations = "none"
-opacity = 1
-startup_mode = "Maximized"
+# opacity = 0.5
 
 
 [window.padding]
-x = 25
-y = 25
+x = 20
+y = 20
