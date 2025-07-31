@@ -1,9 +1,0 @@
-[manager]
-show_hidden = false
-sort_dir_first = true
-
-[preview]
-image_quality = 50
-
-[input]
-cursor_blink = true

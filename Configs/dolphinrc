@@ -4,10 +4,6 @@ MenuBar=Disabled
 update_info=dolphin_detailsmodesettings.upd:rename-leading-padding
 
 [General]
-ConfirmClosingTerminalRunningProgram=false
-EditableUrl=true
-ShowFullPath=true
-ShowSelectionToggle=false
 Version=202
 ViewPropsTimestamp=2023,4,26,16,58,48.324
 
@@ -15,9 +11,6 @@ ViewPropsTimestamp=2023,4,26,16,58,48.324
 IconSize=22
 MaximumTextLines=1
 PreviewSize=48
-
-[InformationPanel]
-dateFormat=ShortFormat
 
 [KFileDialog Settings]
 Places Icons Auto-resize=false
@@ -42,3 +35,6 @@ Plugins=appimagethumbnail,audiothumbnail,comicbookthumbnail,cursorthumbnail,djvu
 [Toolbar mainToolBar]
 IconSize=16
 ToolButtonStyle=IconOnly
+
+[ViewPropertiesDialog]
+1920x1080 screen: Window-Maximized=true
